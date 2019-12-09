@@ -13,9 +13,16 @@ class App extends React.Component {
   // componentDidMount() {
   //   localStorage.setItem("todos", JSON.stringify([]))
   // }
+
+  setStorage = () => {
+    if(JSON.parse(localStorage.getItem("todos")) === (undefined || null )) {
+      localStorage.setItem("todos", JSON.stringify([]));
+    } 
+  }
+
   constructor() {
-    localStorage.setItem("todos", JSON.stringify([]))
     super();
+    this.setStorage();
     this.state = {
       todos: JSON.parse(localStorage.getItem("todos")),
       name: ''

@@ -22,7 +22,7 @@ class App extends React.Component {
     
     super();
     this.state = {
-      todos: JSON.parse(localStorage.getItem("todos")),
+      todos: JSON.parse(localStorage.getItem("todos")) || todoList,
       name: ''
     }
   }

@@ -4,11 +4,6 @@ import TodoForm from './components/TodoComponents/TodoForm'
 import './app.css'
 
 
-const todoList = [
-  {id: 0, name: 'First Todo', completed: false},
-  {id: 1, name: 'Second Todo', completed: false},
-  {id: 2, name: 'Third Todo', completed: false}
-]
 
 
 class App extends React.Component {
@@ -16,13 +11,13 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   componentDidMount() {
-    localStorage.setItem("todos", JSON.stringify(todoList))
+    localStorage.setItem("todos", JSON.stringify([]))
   }
   constructor() {
     
     super();
     this.state = {
-      todos: JSON.parse(localStorage.getItem("todos")) || todoList,
+      todos: JSON.parse(localStorage.getItem("todos")),
       name: ''
     }
   }
@@ -90,7 +85,7 @@ class App extends React.Component {
       <div>
         {console.log(localStorage)}
         <div className="header">
-        <h2>Welcome to your Todo App!</h2>
+        <h2>Todos! Add your first Todo :)</h2>
         <TodoForm handleChanges={this.handleChanges} handleSubmit={this.handleSubmit} name={this.state.name} clearCompleted={this.clearCompleted}/>
         </div>
         <TodoList todos={this.state.todos} toggleCompleted={this.toggleCompleted}/>

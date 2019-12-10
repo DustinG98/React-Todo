@@ -89,14 +89,17 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
-        {console.log(localStorage)}
-        <div className="header">
-        <h2>Todos! Add your first Todo :)</h2>
-        <TodoForm handleChanges={this.handleChanges} handleSubmit={this.handleSubmit} name={this.state.name} clearCompleted={this.clearCompleted}/>
+      <div className="mainContainer">
+        <div className="contentContainer">
+          <div className="header">
+            <h1>React Todos</h1>
+            <TodoForm handleChanges={this.handleChanges} handleSubmit={this.handleSubmit} name={this.state.name} clearCompleted={this.clearCompleted}/>
+            <h2>Todos:</h2>
+            <div className="todos">
+              <TodoList todos={this.state.todos} toggleCompleted={this.toggleCompleted}/>
+            </div>
+          </div>
         </div>
-        <TodoList todos={this.state.todos} toggleCompleted={this.toggleCompleted}/>
-        
       </div>
     );
   }

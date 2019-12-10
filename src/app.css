@@ -34,8 +34,10 @@ span {
 
 .header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin: 5%;
 }
 h1 {
   text-align: left;
@@ -48,9 +50,14 @@ h1 {
   width: 100%;
   margin: 0 auto;
 }
+.todos {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .todo {
   background-color: #e64944;
-  width: 45%;
+  width: 500px;
   text-align: left;
   margin: 4px 0;
   padding-left: 8px;
@@ -61,11 +68,14 @@ h1 {
   background-color: #d17d7c;
   text-decoration: line-through;
 }
-form {
-  width: 50%;
+
+.todo-form {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 form > input {
   background-color: #2d2d37;
   border: 0;
@@ -78,12 +88,26 @@ form > input {
   margin-right: 8px;
 }
 
+.mainContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentContainer{
+  width: 80%;
+}
+
+
 button {
   background-color: #e64944;
   border: 1px solid #e64944;
   color: white;
   font-size: 16px;
   padding: 6px 14px;
+  width: 200px;
+  margin: 2% 2%;
+  height: 30px;
 }
 
 input::placeholder {
@@ -94,3 +118,11 @@ input::placeholder {
 .clear-btn {
   margin-top: 16px;
 }
+
+.todo-form {
+  display: flex;
+}
+/* .todo-form-button {
+  margin: 0 2%;
+  width: 150px;
+} */

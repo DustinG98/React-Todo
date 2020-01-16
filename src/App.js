@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
 import './app.css'
+import SearchForm from './components/TodoComponents/SearchForm';
 
 
 
@@ -25,7 +26,8 @@ class App extends React.Component {
     this.setStorage();
     this.state = {
       todos: JSON.parse(localStorage.getItem("todos")),
-      name: ''
+      name: '',
+      searchTerm: ''
     }
   }
 
@@ -87,16 +89,28 @@ class App extends React.Component {
         name: ''
     })
   }
+
+  //HANDLE SEARCH TERMS
+  handleSearchTerm = e => {
+    this.setState({
+      searchTerm: e.target.value,
+    })
+  }
+  
+  
   render() {
     return (
       <div className="mainContainer">
         <div className="contentContainer">
           <div className="header">
             <h1>React Todos</h1>
+            <div>
+              <SearchForm handleSearchTerm={this.handleSearchTerm} searchTerm={this.state.searchTerm}/>
+            </div>
             <TodoForm handleChanges={this.handleChanges} handleSubmit={this.handleSubmit} name={this.state.name} clearCompleted={this.clearCompleted}/>
             <h2>Todos:</h2>
             <div className="todos">
-              <TodoList todos={this.state.todos} toggleCompleted={this.toggleCompleted}/>
+              <TodoList todos={this.state.searchTerm !== "" ? this.state.todos.filter(todo => todo.name.toLowerCase().includes(this.state.searchTerm)) : this.state.todos} toggleCompleted={this.toggleCompleted}/>
             </div>
           </div>
         </div>

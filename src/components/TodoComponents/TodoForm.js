@@ -5,7 +5,7 @@ const TodoForm = (props) => {
     return (
         <div className="todo-form">
             <form onSubmit={handleSubmit} className="todo-form">
-                <input type="text" name="name" onChange={handleChanges} value={name}/>
+                <input type="text" name="name" onChange={handleChanges} value={name} placeholder="Add New Todo"/>
                 <button className="todo-form-button">Add Todo</button>
             </form>
             <button className="todo-form-button" onClick={e => clearCompleted(e)}>Clear Completed</button>

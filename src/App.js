@@ -110,7 +110,7 @@ class App extends React.Component {
             <TodoForm handleChanges={this.handleChanges} handleSubmit={this.handleSubmit} name={this.state.name} clearCompleted={this.clearCompleted}/>
             <h2>Todos:</h2>
             <div className="todos">
-              <TodoList todos={this.state.searchTerm !== "" ? this.state.todos.filter(todo => todo.name.includes(this.state.searchTerm)) : this.state.todos} toggleCompleted={this.toggleCompleted}/>
+              <TodoList todos={this.state.searchTerm !== "" ? this.state.todos.filter(todo => todo.name.toLowerCase().includes(this.state.searchTerm)) : this.state.todos} toggleCompleted={this.toggleCompleted}/>
             </div>
           </div>
         </div>
